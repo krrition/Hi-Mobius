@@ -10,28 +10,35 @@ public class NPCController : MonoBehaviour
     public NavMeshAgent navAgent;
     public Transform target;
     
-    //Speed
+    //Speeds
     public float speed;
-    public float angularSpeed;
-
+    [HideInInspector] public float angularSpeed;
+    
     //States
     private NPCBaseState currentState;
-    public NPCIdleState idleState = new NPCIdleState();
-    public NPCWalkState walkState = new NPCWalkState();
+    [HideInInspector] public NPCIdleState idleState = new NPCIdleState();
+    [HideInInspector] public NPCWalkState walkState = new NPCWalkState();
     
-    //State Variables
+    [Header("State Variables (for debugging)")]
     public float idleTime;
     [Range(0, 100)] public int rerouteChance;
     public float walkTime;
-    
+
+    [Header("Variable Min/Max")] 
+    public float speedMin = 2f;
+    public float speedMax = 6f;
+    public float idleMin = 0.4f;
+    public float idleMax = 6f;
+    public float walkMin = 5f;
+    public float walkMax = 15f;
     
     private void Start()
     {
-        //add randomness to variables
-        navAgent.speed = Random.Range(2f, 10f);
-        idleTime = Random.Range(0.4f, 6f);
+        //add randomness to variables using min max
+        navAgent.speed = Random.Range(speedMin, speedMax);
+        idleTime = Random.Range(idleMin, idleMax);
         rerouteChance = Random.Range(0, 101);
-        walkTime = Random.Range(5f, 15f);
+        walkTime = Random.Range(walkMin, walkMax);
         
         //store speeds
         speed = navAgent.speed;

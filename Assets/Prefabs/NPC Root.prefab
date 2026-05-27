@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 6622964750788594475}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,7 +189,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.75
-  m_Speed: 3.5
+  m_Speed: 10.44
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 1000000
@@ -220,3 +220,9 @@ MonoBehaviour:
   idleTime: 3
   rerouteChance: 50
   walkTime: 3
+  speedMin: 2
+  speedMax: 6
+  idleMin: 0.4
+  idleMax: 6
+  walkMin: 5
+  walkMax: 15
