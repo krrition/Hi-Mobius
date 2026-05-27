@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 2544931383429734668}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.26, y: 0, z: -14}
+  m_LocalPosition: {x: 31.46, y: 0, z: -20.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -215,3 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   navAgent: {fileID: 5770272797619481433}
   target: {fileID: 2274603688287448458}
+  speed: 3.5
+  angularSpeed: 0
+  idleTime: 3
+  rerouteChance: 50
+  walkTime: 3
