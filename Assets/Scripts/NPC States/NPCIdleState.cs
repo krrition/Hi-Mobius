@@ -25,5 +25,9 @@ public class NPCIdleState : NPCBaseState
             elapsedTimer = 0;
             return;
         }
+        
+        /*//reroute when reached destination
+        if (npc.navAgent.remainingDistance <=0)
+            npc.Reroute();*/
     }
 }

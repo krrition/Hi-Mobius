@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - NPC
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - NPC
+  - Ground
   - 
   - 
   - 

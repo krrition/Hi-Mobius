@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class NPCController : MonoBehaviour
 {
-    //drag references
+    //inspector drag references
     public NavMeshAgent navAgent;
     public Transform target;
     
@@ -70,8 +70,8 @@ public class NPCController : MonoBehaviour
     {
         //choose what axes of the destination to flip
         int axis = Random.Range(0, 3);
-        //temp variable
-        var tempPos = target.localPosition;
+        //orbiting around origin of the world
+        var tempPos = target.position;
         switch (axis)
         {
             case 0:
@@ -86,7 +86,7 @@ public class NPCController : MonoBehaviour
                 break;
         }
         //plug in temp var
-        target.localPosition = tempPos;
+        target.position = tempPos;
     
         
         //calculate new destination path
