@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +13,9 @@ public class MouseController : MonoBehaviour
     
     //inspector drag references
     [SerializeField] private Camera cam;
+    [SerializeField] private RawImage fadeScreen;
+    [SerializeField] private float fadeInDuration = 1f;
+    private float fadeInTimer;
 
     [Header("UI and Sliders")]
     [SerializeField] private Image propertiesMenu;
@@ -25,8 +29,32 @@ public class MouseController : MonoBehaviour
     [SerializeField] private Transform[] obstacles = new Transform [5];
     [SerializeField] private int obstacleIndex;
     [SerializeField] private float fallHeight = 10;
-    
-    
+
+    private void Update()
+    {
+        //for fading out the blackscreen
+        if (fadeInTimer < fadeInDuration)
+        {
+            //temo variable
+            var tempColor = fadeScreen.color;
+            
+            //iterate value
+            tempColor = new Color(tempColor.r, tempColor.g, tempColor.b,
+                Mathf.Lerp(1, 0, fadeInTimer / fadeInDuration));
+
+            //plug temp value back in
+            fadeScreen.color = tempColor;
+            
+            //increase timer
+            fadeInTimer += Time.deltaTime;
+        }
+        else
+        {
+            //when done, deactivate screen. It was causing raycast issues
+            fadeScreen.gameObject.SetActive(false);
+        }
+    }
+
     private void OnLeftClick()
     {
         //if mouse is over UI Element, Do not raycast 
