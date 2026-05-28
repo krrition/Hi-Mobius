@@ -88,7 +88,7 @@ public class MouseController : MonoBehaviour
     public void ApplyProperties()
     {
         activeNPC.speed = speedSlider.value;
-        activeNPC.navAgent.speed = activeNPC.speed;
+        activeNPC.CalibrateSpeed();
         activeNPC.idleTime = idleSlider.value;
         activeNPC.rerouteChance = (int)rerouteSlider.value;
         activeNPC.walkTime = walkSlider.value;

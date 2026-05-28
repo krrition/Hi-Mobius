@@ -9,6 +9,7 @@ public class NPCController : MonoBehaviour
     //inspector drag references
     public NavMeshAgent navAgent;
     public Transform target;
+    public Animator animator;
     
     //Speeds
     public float speed;
@@ -31,6 +32,12 @@ public class NPCController : MonoBehaviour
     public float idleMax = 6f;
     public float walkMin = 5f;
     public float walkMax = 15f;
+
+    [Header("Parameters")] 
+    [SerializeField] private float animatorSpeedMultiple = 2;
+    //used by walkState
+    public float destinationRadius = 4;
+    
     
     private void Start()
     {
@@ -91,5 +98,12 @@ public class NPCController : MonoBehaviour
         
         //calculate new destination path
         navAgent.SetDestination(target.position);
+    }
+    
+    //needed for when properties are changed at runtime and for lining up animation
+    public void CalibrateSpeed()
+    {
+        navAgent.speed = speed;
+        animator.speed = speed/animatorSpeedMultiple;
     }
 }

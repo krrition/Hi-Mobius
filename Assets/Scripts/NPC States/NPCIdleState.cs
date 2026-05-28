@@ -9,6 +9,10 @@ public class NPCIdleState : NPCBaseState
         //stop pathing
         npc.navAgent.speed = 0;
         npc.navAgent.angularSpeed = 0;
+        
+        //switch animation and speed
+        npc.animator.SetBool("Walking",false);
+        npc.animator.speed = 1;
     }
     
     public override void UpdateState(NPCController npc)
